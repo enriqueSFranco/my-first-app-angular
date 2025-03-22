@@ -11,6 +11,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       <a [routerLink]="['/']">
         <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
       </a>
+      <a [routerLink]="['/tour-of-heroes']">tour of heroes</a>
     </header>
     <section class="content">
       <router-outlet></router-outlet>
