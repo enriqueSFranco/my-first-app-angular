@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero';
+import { ParentComponent } from "../parent/parent.component";
 
 
 @Component({
   selector: 'app-heroes',
-  standalone: true,
-  imports: [],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css'
 })

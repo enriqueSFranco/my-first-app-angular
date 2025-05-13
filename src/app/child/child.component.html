@@ -1,0 +1,12 @@
+<div>
+  <h2>Componente Child</h2>
+  <p>{{datoDeEntrada}}</p>
+
+  <hr>
+
+  <h2>Enviando data desde el Child al Parent</h2>
+  <label for="data">Escribe un mensaje para el parent</label>
+  <input type="text" id="data" placeholder="mensaje de prueba" [(ngModel)]="mensaje" />
+  <button (click)="enviarMensaje()">enviar</button>
+</div>
+
