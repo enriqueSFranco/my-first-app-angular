@@ -1,0 +1,19 @@
+.layout{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.layout__body {
+  display: flex;
+}
+
+.layout__footer {
+  background-color: #222;
+  display: grid;
+  place-content:center;
+}
+.layout__credit{
+  color: #fff;
+  font-size: 0.9em;
+}
