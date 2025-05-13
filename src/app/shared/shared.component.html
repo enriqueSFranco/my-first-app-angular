@@ -1,0 +1,18 @@
+<div class="layout">
+  <div class="layout__body">
+    <app-menu />
+
+    <div class="layout__main">
+      <app-header />
+      <main class="main-content">
+        <h2 class="main-content__title">main</h2>
+        <input type="text" placeholder="Ingresa tu nombre" [(ngModel)]="inputName" />
+        <span>{{inputName}}</span>
+      </main>
+    </div>
+  </div>
+
+  <footer class="layout__footer">
+    <p class="layout__credit">creado con ♥️ por &#64;enriqueSFranco</p>
+  </footer>
+</div>
