@@ -1,37 +1,64 @@
 <section class="task-section">
   <ul class="task-list">
-    <li class="task-list__item">
+    <li
+      *ngFor="let task of testTasks; let i = index; let isFirst = first; let isLast = last; let isOdd = odd; let isEven = even; trackBy: trackByTaskId"
+      class="task-list__item"
+    >
       <div
         class="task"
-        [ngClass]="{
-          'task--status-progress': task.status === 'progress',
-          'task--status-pending': task.status === 'pending',
-          'task--status-completed': task.status === 'completed'
-        }"
+        [ngClass]="[
+        getStatusClass(task.status),
+        isFirst ? 'task--fist' : '',
+        isLast ? 'task--last' : '',
+        isEven ? 'task--even' : 'task--odd',
+      ]
+        "
         [ngStyle]="{
           'border-left': '8px solid ' + getBgColorByPriority(task.priority)
         }"
       >
-        <p class="task__title">{{ task.title }}</p>
-        <p class="task__status">
-          Estado:
-          <span class="task__status--bold">
-            {{ task.status.toUpperCase() }}
-          </span>
-        </p>
+        <p class="task__title">{{i + 1}}.{{ task.title }}</p>
+        <span *ngIf="isFirst">🟢 Primero</span>
+        <span *ngIf="isLast">🔴 Último</span>
+        <span *ngIf="isEven">Par</span>
+        <span *ngIf="isOdd">Impar</span>
+
+        <footer [ngSwitch]="task.status">
+          <!-- usando ngIf - else -->
+          <!-- <p *ngIf="task.status === TaskStatus.Completed; else notDone">
+            ✅ ¡tarea completada!
+          </p>
+          <ng-template #notDone>
+            <p class="task__status">
+              Estado:
+              <span class="task__status--bold">
+                {{ task.status.toUpperCase() }}
+              </span>
+            </p>
+          </ng-template> -->
+
+          <!-- usando [ngSwitch] -->
+          <p *ngSwitchCase="TaskStatus.Completed"> ✅ ¡tarea completada!</p>
+          <p *ngSwitchCase="TaskStatus.Progress">🚧 En progreso, ¡sigue así!</p>
+          <p *ngSwitchCase="TaskStatus.Pending">🕒 Aún pendiente, no te olvides.</p>
+          <p *ngSwitchDefault>😶‍🌫️ Status no disponible</p>
+        </footer>
+        <div class="task-section__filters">
+          <select [ngModel]="task.status" (ngModelChange)="onStatusChange(task, $event)">
+            <option *ngFor="let status of statuses" [value]="status.value">
+              {{ status.label }}
+            </option>
+          </select>
+          <select [(ngModel)]="task.priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
       </div>
     </li>
   </ul>
-  <div class="task-section__filters">
-    <select [(ngModel)]="task.status" (change)="changeStatus()">
-      <option value="progress">Progress</option>
-      <option value="pending">Pending</option>
-      <option value="completed">Completed</option>
-    </select>
-    <select [(ngModel)]="task.priority">
-      <option value="high">High</option>
-      <option value="medium">Medium</option>
-      <option value="low">Low</option>
-    </select>
+  <div>
+    <p [class.sale]="showClassSale">Agregando la clase sale con [class.sale]</p>
   </div>
 </section>
