@@ -1,0 +1,37 @@
+<section class="task-section">
+  <ul class="task-list">
+    <li class="task-list__item">
+      <div
+        class="task"
+        [ngClass]="{
+          'task--status-progress': task.status === 'progress',
+          'task--status-pending': task.status === 'pending',
+          'task--status-completed': task.status === 'completed'
+        }"
+        [ngStyle]="{
+          'border-left': '8px solid ' + getBgColorByPriority(task.priority)
+        }"
+      >
+        <p class="task__title">{{ task.title }}</p>
+        <p class="task__status">
+          Estado:
+          <span class="task__status--bold">
+            {{ task.status.toUpperCase() }}
+          </span>
+        </p>
+      </div>
+    </li>
+  </ul>
+  <div class="task-section__filters">
+    <select [(ngModel)]="task.status" (change)="changeStatus()">
+      <option value="progress">Progress</option>
+      <option value="pending">Pending</option>
+      <option value="completed">Completed</option>
+    </select>
+    <select [(ngModel)]="task.priority">
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+  </div>
+</section>
