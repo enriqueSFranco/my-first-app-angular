@@ -1,6 +1,18 @@
+export enum TaskStatus {
+  Progress = 'progress',
+  Pending = 'pending',
+  Completed = 'completed'
+}
+
+export enum TaskPriority {
+  High = 'high',
+  Medium = 'medium',
+  Low = 'low'
+}
+
 export interface Task {
   id: string;
   title: string;
-  status: 'progress' | 'completed' | 'pending';
-  priority: 'high' | 'medium' | 'low';
+  status: TaskStatus;
+  priority: TaskPriority;
 }
