@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+// import { NgClass, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
 import { Task, TaskPriority, TaskStatus } from './interfaces/task';
 
 @Component({
   selector: 'app-task-list',
-  standalone: true,
-  imports: [CommonModule, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase],
+  // standalone: true,
+  // imports: [],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css',
 })
