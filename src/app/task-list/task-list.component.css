@@ -35,7 +35,6 @@
   flex-direction: column;
   gap: 8px;
   border-left: 8px solid transparent;
-  /* default */
 }
 
 /* Elementos dentro de la tarea */
@@ -88,4 +87,26 @@
   border: 1px solid #ced4da;
   border-radius: 6px;
   background-color: #fff;
+}
+
+.sale {
+  color: purple;
+  text-transform: capitalize;
+}
+
+
+.task--first {
+  outline: 2px dashed green;
+}
+
+.task--last {
+  outline: 2px dashed red;
+}
+
+.task--even {
+  outline: 2px solid #f8f9fa;
+}
+
+.task--odd {
+  outline: 2px solid #e9ecef;
 }
