@@ -12,5 +12,5 @@ import { TaskListModule } from './task-list/task-list.module';
   styleUrl: './app.component.css', // para enumerar los estilos que requiere el componente
 })
 export class AppComponent {
-  title = 'my-first-app';
+  title = 'Tour of heroes';
 }
